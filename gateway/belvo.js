@@ -11,6 +11,18 @@ class BelvoGateway {
   getUserLink() {
     return "a6598df99-8bdb-4156-9da1-fa8a06ba30f0";
   }
+
+  async getAccessToken() {
+    try {
+      await client.connect();
+      const token = await client.widgetToken.create();
+      console.log(token);
+      return token.access;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   async getUserAccounts() {
     try {
       await client.connect();
@@ -29,7 +41,7 @@ class BelvoGateway {
         filters: { country_code: "CO" },
       });
       console.log("institutions" + institutions);
-      return institutions.find((el) => el.name.includes('bancolombia'));
+      return institutions.find((el) => el.name.includes("bancolombia"));
     } catch (e) {
       console.log(e);
     }
