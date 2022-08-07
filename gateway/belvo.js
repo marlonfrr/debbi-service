@@ -2,9 +2,9 @@ const { config } = require("../config/config");
 var belvo = require("belvo").default;
 
 var client = new belvo(
-  config.developmentSecretId,
-  config.developmentSecretPassword,
-  config.developmentEnvironment
+  config.sandboxSecretId,
+  config.sandboxSecretPassword,
+  config.sandboxEnvironment
 );
 
 class BelvoGateway {
