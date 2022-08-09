@@ -9,7 +9,7 @@ var client = new belvo(
 
 class BelvoGateway {
   getUserLink() {
-    return "a6598df99-8bdb-4156-9da1-fa8a06ba30f0";
+    return "2a509c64-d72a-4cdf-ba91-9a1b66084e33";
   }
 
   async getAccessToken() {
@@ -23,10 +23,11 @@ class BelvoGateway {
     }
   }
 
-  async getUserAccounts() {
+  async getUserAccounts(link) {
+    link = this.getUserLink();
     try {
       await client.connect();
-      const accounts = await client.accounts.retrieve(this.getUserLink());
+      const accounts = await client.accounts.retrieve(link);
       console.log("accounts" + accounts);
       return accounts;
     } catch (e) {
