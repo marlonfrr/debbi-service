@@ -2,14 +2,22 @@ const { config } = require("../config/config");
 var belvo = require("belvo").default;
 
 var client = new belvo(
-  config.sandboxSecretId,
-  config.sandboxSecretPassword,
-  config.sandboxEnvironment
+  config.currentEnvironment == "sandbox"
+    ? config.sandboxSecretId
+    : config.developmentSecretId,
+  config.currentEnvironment == "sandbox"
+    ? config.sandboxSecretPassword
+    : config.developmentSecretPassword,
+  config.currentEnvironment == "sandbox"
+    ? config.sandboxEnvironment
+    : config.developmentEnvironment
 );
 
 class BelvoGateway {
   getUserLink() {
-    return "2a509c64-d72a-4cdf-ba91-9a1b66084e33";
+    return config.currentEnvironment == "sandbox"
+      ? "2a509c64-d72a-4cdf-ba91-9a1b66084e33"
+      : "307a3179-75a3-4ba2-bc9e-a75543aec506";
   }
 
   async getAccessToken() {
@@ -52,7 +60,10 @@ class BelvoGateway {
     link = this.getUserLink();
     try {
       await client.connect();
-      const transactions = await client.transactions.retrieve(link, '2022-08-12');
+      const transactions = await client.transactions.retrieve(
+        link,
+        "2022-08-12"
+      );
       console.log("transactions" + transactions);
       return transactions;
     } catch (e) {
