@@ -52,7 +52,7 @@ class BelvoGateway {
     link = this.getUserLink();
     try {
       await client.connect();
-      const transactions = await client.transactions.retrieve(link, '2022-08-01');
+      const transactions = await client.transactions.retrieve(link, '2022-08-12');
       console.log("transactions" + transactions);
       return transactions;
     } catch (e) {
