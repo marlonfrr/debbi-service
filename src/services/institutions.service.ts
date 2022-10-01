@@ -1,12 +1,10 @@
-const BelvoGateway = require("../gateway/belvo");
+import { BelvoGateway } from '../gateway/belvo';
 
 const belvo = new BelvoGateway();
 
-class InstitutionsService {
+export class InstitutionsService {
   async getInstitutions() {
     const institutions = await belvo.getInstitutions();
     return institutions;
   }
 }
-
-module.exports = InstitutionsService;
