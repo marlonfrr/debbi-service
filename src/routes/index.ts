@@ -7,6 +7,7 @@ import { linksRouter } from './links.router';
 import { signupRouter } from './signup.router';
 import { signinRouter } from './signin.router';
 import { tokenRouter } from './access-token.router';
+import { hookRouter } from './hook.router';
 
 export function routerApi(app) {
   const router = express.Router();
@@ -21,4 +22,5 @@ export function routerApi(app) {
   router.use('/link', linksRouter);
   router.use('/token', tokenRouter);
   router.use('/accounts', accountsRouter);
+  router.use('/hook', hookRouter);
 }
