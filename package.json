@@ -4,9 +4,11 @@
   "description": "Debbi personal finances",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.ts",
-    "build": "tsc",
-    "postinstall": "npm run build"
+    "start": "node build/index.js",
+    "postinstall": "tsc",
+    "watch-node": "nodemon build/index.js",
+    "watch-ts": "tsc -w",
+    "deploy": "git add . && git commit -m Heroku && git push origin main"
   },
   "author": "marlonfrr",
   "license": "MIT",
@@ -32,7 +34,7 @@
     "typeorm": "^0.3.10"
   },
   "engines": {
-    "node": "12.x"
+    "node": "16.x"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
