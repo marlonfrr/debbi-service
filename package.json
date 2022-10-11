@@ -34,7 +34,7 @@
     "typeorm": "^0.3.10"
   },
   "engines": {
-    "node": "16.x"
+    "node": "12.x"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
