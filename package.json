@@ -4,7 +4,7 @@
   "description": "Debbi personal finances",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node src/index.ts",
     "build": "tsc",
     "postinstall": "npm run build"
   },
