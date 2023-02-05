@@ -1,6 +1,8 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
 import { User } from './User';
 
+interface ILink {}
+
 @Entity({ name: 'links' })
 export class Link {
   @PrimaryGeneratedColumn()
